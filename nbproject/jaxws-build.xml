@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+        *** GENERATED FROM jax-ws.xml - DO NOT EDIT !                             ***
+        *** TO MODIFY wsimport options USE Web Service node -> Edit WS Attributes ***
+        *** TO CHANGE TARGETS GENERATED TO jaxws-build.xml COPY THOSE             ***
+        *** TARGETS TO ../build.xml AND MODIFY THAT FILE INSTEAD                  ***
+
+        --><project xmlns:xalan="http://xml.apache.org/xslt" xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:jaxws="http://www.netbeans.org/ns/jax-ws/1">
+    <!--
+                ===================
+                JAX-WS WSIMPORT SECTION
+                ===================
+            -->
+    <target name="wsimport-init" depends="init">
+        <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
+        <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+            <classpath path="${libs.jaxws21.classpath}"/>
+        </taskdef>
+    </target>
+    <target name="wsimport-client-ComprarWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/ComprarWS"/>
+        <property name="wsdl-ComprarWS" location="xml-resources/web-service-references/ComprarWS/wsdl/localhost_8080/ComprarWS/ComprarWS.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ComprarWS" destdir="${build.generated.dir}/jax-wsCache/ComprarWS" wsdl="${wsdl-ComprarWS}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/ComprarWS/ComprarWS?wsdl" xnocompile="true" xendorsed="true" package="WSComprar">
+            <depends file="${wsdl-ComprarWS}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/ComprarWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/ComprarWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-ComprarWS" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/ComprarWS"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/WSComprar"/>
+    </target>
+    <target name="wsimport-client-PagarWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/PagarWS"/>
+        <property name="wsdl-PagarWS" location="xml-resources/web-service-references/PagarWS/wsdl/localhost_8080/PagarWS/PagarWS.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/PagarWS" destdir="${build.generated.dir}/jax-wsCache/PagarWS" wsdl="${wsdl-PagarWS}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/PagarWS/PagarWS?wsdl" xnocompile="true" xendorsed="true" package="WSpagar">
+            <depends file="${wsdl-PagarWS}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/PagarWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/PagarWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-PagarWS" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/PagarWS"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/WSpagar"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-ComprarWS, wsimport-client-PagarWS"/>
+</project>
